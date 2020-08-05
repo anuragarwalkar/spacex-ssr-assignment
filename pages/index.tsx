@@ -1,15 +1,27 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout from '../components/layout/Layout';
+import React, { Component } from 'react';
+// import Link from 'next/link';
+// import { NextPageContext } from 'next';
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+class IndexPage extends Component<IndexPageProps, IndexPageState> {
+  render() { 
+    return  (
+    <Layout title="SpaceX Launch Programs">
+    
+    </Layout>
+  )
+  }
+}
+
+export interface IndexPageProps {
+
+}
+ 
+export interface IndexPageState {
+  
+}
+// interface Context extends NextPageContext {
+//   
+// }
 
 export default IndexPage

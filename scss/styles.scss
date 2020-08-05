@@ -1,0 +1,23 @@
+html, body {
+    background-color: #F2F2F2;
+    height: 99%;
+}
+
+#__next {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+#content {
+    flex: 1;
+    padding: 20px;
+}
+
+#footer {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 20px;
+}
