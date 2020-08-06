@@ -1,10 +1,11 @@
-html, body {
-    background-color: #F2F2F2;
+html,
+body {
+    background-color: #f2f2f2;
     height: 99%;
 }
 
 #__next {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -20,4 +21,57 @@ html, body {
     font-weight: 700;
     font-size: 1.2rem;
     padding: 20px;
+}
+
+.filters {
+    background-color: white;
+    padding: 1rem;
+    // width: 12%;
+
+    &Title {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    &Heading {
+        display: block;
+        width: 70%;
+        text-align: center;
+        margin: 1rem auto;
+
+        padding: 0.8rem 0.8rem 0 0.8rem;
+        border-bottom: 1px solid black;
+    }
+
+    &Contailer {
+        display: grid;
+        column-gap: 3rem;
+        row-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        cursor: pointer;
+
+        div {
+            text-align: center;
+            background-color: #c5e09b;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    }
+
+    .active {
+        background-color: #7cba01 !important;
+    }
+}
+
+.mb-05 {
+    margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1024px) {
+    .filters {
+        &Contailer {
+            column-gap: 1rem;
+        }
+    }
 }
