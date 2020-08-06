@@ -1,10 +1,8 @@
 import '../scss/styles.scss';
 import { NextComponentType } from 'next';
 
-interface MyAppModel {Component: NextComponentType, pageProps: any};
+interface MyAppModel { Component: NextComponentType, pageProps: any };
 
-const MyApp = ({ Component, pageProps }: MyAppModel) => {
+export default function App({ Component, pageProps }: MyAppModel) {
   return <Component {...pageProps} />
 }
-
-export default MyApp;
