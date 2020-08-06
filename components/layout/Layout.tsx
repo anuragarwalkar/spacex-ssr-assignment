@@ -1,5 +1,4 @@
 import React, { ReactNode, Fragment } from 'react';
-// import Link from 'next/link';
 import Head from 'next/head';
 import styles from './Layout.module.scss';
 
@@ -17,15 +16,15 @@ const Layout = ({ children, title = 'No Title!' }: Props) => (
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     </Head>
     <header className={styles.header}>
-        <span>SpaceX Launch Programs</span>
+      <span>{title}</span>
     </header>
-    <div id="content">
-    {children}
-    </div>
+    <section id="content">
+      {children}
+    </section>
     <footer id="footer">
-      <div>Developed by: <a href="https://bit.ly/annurag" target="_blank">Anurag</a></div>
+      <div>Developed by: <a href="https://bit.ly/annurag" target="_blank">Anurag Arwalkar</a></div>
     </footer>
-    </Fragment>
+  </Fragment>
 )
 
 export default Layout
