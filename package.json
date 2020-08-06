@@ -4,8 +4,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build" 
   },
   "dependencies": {
     "axios": "^0.19.2",
