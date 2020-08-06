@@ -5,12 +5,11 @@
     "dev": "next",
     "build": "next build",
     "type-check": "tsc",
-    "start": "next start -p $PORT",
-    "heroku-postbuild": "npm run build" 
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "next": "latest",
+    "next": "^9.0.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "sass": "^1.26.10"
@@ -20,6 +19,14 @@
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
     "typescript": "3.7.3"
+  },
+  "keywords": [
+    "react",
+    "ssr",
+    "server-side-rendering"
+  ],
+  "engines": {
+    "node": "10"
   },
   "license": "ISC"
 }
