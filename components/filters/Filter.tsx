@@ -20,7 +20,6 @@ const Filter: React.SFC<FilterProps> = ({ query }) => {
             const queryArrayValues = Object.values(queryArray) as any;
 
             queryArrayKeys.forEach((query: string, index: number) => {
-                console.log('index:', index)
                 mapFiltersArray(query, queryArrayValues[index]);
             });
         }
