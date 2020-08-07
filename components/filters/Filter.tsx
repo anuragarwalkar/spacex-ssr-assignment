@@ -1,44 +1,60 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { years, launch, landing } from '../../utils/constants'
 import { useRouter } from 'next/router'
 import { useState } from 'react';
 
 export interface FilterProps {
-
+    query: any
 }
 
-const Filter: React.SFC<FilterProps> = () => {
+const Filter: React.SFC<FilterProps> = ({query}) => {
 
     const router = useRouter();
+
+    useEffect(()=> {
+        const { query: {launch_success, land_success, year} } = router;
+
+
+    }, [query])
 
     const [launchSuccessArray, setLaunchSuccessArray] = useState(launch);
     const [landSuccessArray, setLandSuccessArray] = useState(landing);
     const [launchYearsArray, setLaunchYearsArray] = useState(years);
 
     const filterHandler = (filter: string, value: string, id: number) => {
+        debugger
         const bool = value === 'true';
+       
+        let query: any = { ...router.query };
 
-        const updateIsActive = (item: any) => {
+        query = mapFiltersArray(filter, bool, value, id, query);
+
+        router.push({ query });
+    }
+
+    const updateIsActive = (id: number) => {
+        return (item: any ) => {
             item.id === id ? item.isActive = true : item.isActive = false
             return item;
         }
-        const query: any = { ...router.query };
+    }
 
-        if (filter === 'launch_success') {
-            const updateData = launchSuccessArray.map(updateIsActive)
+    const mapFiltersArray = (filterType: string, bool: boolean ,value: string, id: number,query?: any) => {
+        if (filterType === 'launch_success') {
+            const updateData: any [] = launchSuccessArray.map(updateIsActive(id))
             setLaunchSuccessArray(updateData);
-            query.launch_success = bool;
-        } else if (filter === 'land_success') {
-            const updateData = landSuccessArray.map(updateIsActive);
+            query ? query.launch_success = bool : null;
+        } else if (filterType === 'land_success') {
+            const updateData: any [] = landSuccessArray.map(updateIsActive(id));
             setLandSuccessArray(updateData);
-            query.land_success = bool;
-        } else if (filter === 'launch_year') {
-            const updateData = years.map(updateIsActive);
+            query ? query.land_success = bool : null;
+        } else if (filterType === 'launch_year') {
+            const updateData: any []  = years.map(updateIsActive(id));
             setLaunchYearsArray(updateData);
-            query.launch_year = value;
+            query ? query.launch_year = value : null;
         }
 
-        router.push({ query });
+        return query ? query : {};
     }
 
     return (

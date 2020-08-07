@@ -4,10 +4,10 @@ import styles from './LaunchProgram.module.scss';
 import { useRouter } from 'next/router'
 
 export interface LaunchProgramProps {
-
+    query: any
 }
 
-const LaunchProgram: React.SFC<LaunchProgramProps> = () => {
+const LaunchProgram: React.SFC<LaunchProgramProps> = ({query}) => {
 
     const [programs, setPrograms] = useState([]);
 
@@ -18,8 +18,7 @@ const LaunchProgram: React.SFC<LaunchProgramProps> = () => {
             const programs = await getLaunchPrograms(router.asPath);
             setPrograms(programs);
         })();
-
-    }, [router])
+    }, [query])
 
     return (<article  className={styles.launchProgramContainer}>
         {programs.map((program: any) => {
