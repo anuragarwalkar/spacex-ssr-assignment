@@ -24,7 +24,7 @@ const LaunchProgram: React.SFC<LaunchProgramProps> = () => {
     return (<article  className={styles.launchProgramContainer}>
         {programs.map((program: any) => {
             const { flight_number, mission_name, launch_year,
-                links: { mission_patch_small }, launch_success } = program as any;
+                links: { mission_patch_small }, launch_success, rocket} = program as any;
             return <div key={flight_number} className={styles.launchProgramDiv}>
                 <div className={styles.launchProgramImgDiv}>
                     <img src={mission_patch_small} />
@@ -51,8 +51,10 @@ const LaunchProgram: React.SFC<LaunchProgramProps> = () => {
                 </div>
                 <div className='mb-05'>
                     <span className={styles.title}>Successful Landing: </span>
+                    {rocket.first_stage.cores[0].land_success ? 'true' : 'false'}
                 </div>
             </div>
+            
         }
         )}
     </article>);
