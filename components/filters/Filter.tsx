@@ -7,7 +7,7 @@ export interface FilterProps {
     query: any
 }
 
-const Filter: React.SFC<FilterProps> = ({ query }) => {
+const Filter: React.SFC<FilterProps> = () => {
 
     const router = useRouter();
 

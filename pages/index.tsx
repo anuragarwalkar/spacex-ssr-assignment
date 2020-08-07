@@ -3,7 +3,7 @@ import Layout from '../components/layout/Layout';
 import Filter from '../components/filters/Filter';
 import LaunchProgram from '../components/Program/LaunchProgram';
 import styles from './index.module.scss';
-import { NextPage, NextPageContext } from 'next';
+import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
 export interface IndexPageProps {
@@ -18,8 +18,6 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
     if (asPath.length === 1)
       router.push({ query: { limit: 100 } });
   }, []);
-
-  const { query } = props;
 
   return (
     <Layout title={'SpaceX Launch Programs'}>
