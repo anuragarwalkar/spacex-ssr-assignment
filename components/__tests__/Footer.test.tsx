@@ -1,8 +1,13 @@
 import 'jsdom-global/register'; 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
+import Footer from '../Footer/Footer';
+import { findByTestAttr } from '../../utils/utils';
 
-test('hello world', () => {
- const wrapper = mount(<p>Hello Jest!</p>);
- expect(wrapper.text()).toMatch('Hello Jest!');
-});
+describe('<Footer />', ()=> {
+    it('should render without errors', ()=> {
+        const component = shallow(<Footer />);
+        const wrapper = findByTestAttr(component, 'footer');
+        expect(wrapper.length).toBe(1);
+    })
+})
