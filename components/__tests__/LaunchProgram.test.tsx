@@ -28,6 +28,10 @@ describe('<LaunchProgram />', ()=> {
            const filtersContailer = findByTestAttr(wrapper, 'launchProgramArticle');
            expect(filtersContailer.length).toBe(0)
        })
+
+       it('set initial state for compoent' , ()=> {
+        
+       })
    })
 
    describe('Have no props', ()=> {
