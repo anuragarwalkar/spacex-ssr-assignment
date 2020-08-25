@@ -7,7 +7,7 @@ export interface FilterProps {
     query: any
 }
 
-const Filter: React.SFC<FilterProps> = () => {
+const Filter: React.SFC<FilterProps> = (props) => {
 
     const router = useRouter();
 
@@ -39,7 +39,6 @@ const Filter: React.SFC<FilterProps> = () => {
 
     const updateIsActive = (value: any) => {
         return (item: any) => {
-            debugger
             item.value == value ? item.isActive = true : item.isActive = false
             return item;
         }
@@ -63,11 +62,15 @@ const Filter: React.SFC<FilterProps> = () => {
         return query ? query : {};
     }
 
+    if(!props.query) {
+        return null;
+    }
+
     return (
-        <div className="filters">
+        <div className="filters" data-test-id="filters">
             <span className="filtersTitle">Filters</span>
             <span className="filtersHeading">Successful Year</span>
-            <div className="filtersContailer">
+            <div className="filtersContailer" data-test-id="filtersContailer">
                 {launchYearsArray.map(({ value, id, isActive }) => {
 
                     return <div onClick={() => filterHandler('launch_year', value.toString())} key={id} className={isActive ? 'active' : ''} >
@@ -76,7 +79,7 @@ const Filter: React.SFC<FilterProps> = () => {
                 })}
             </div>
             <span className="filtersHeading">Successful Launch</span>
-            <div className="filtersContailer">
+            <div className="filtersContailer" data-test-id="filtersContailer">
                 {launchSuccessArray.map(({ value, id, isActive }) => {
                     return <div onClick={() => filterHandler('launch_success', value)} key={id} className={isActive ? 'active' : ''} >
                         {value}
@@ -84,7 +87,7 @@ const Filter: React.SFC<FilterProps> = () => {
                 })}
             </div>
             <span className="filtersHeading">Successful Landing</span>
-            <div className="filtersContailer">
+            <div className="filtersContailer"data-test-id="filtersContailer">
                 {landSuccessArray.map(({ value, id, isActive }) => {
                     return <div onClick={() => filterHandler('land_success', value)} key={id} className={isActive ? 'active' : ''} >
                         {value}
