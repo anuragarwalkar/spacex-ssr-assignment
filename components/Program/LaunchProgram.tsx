@@ -20,11 +20,15 @@ const LaunchProgram: React.SFC<LaunchProgramProps> = ({query}) => {
         })();
     }, [query])
 
-    return (<article  className={styles.launchProgramContainer}>
+    if(!query) {
+        return null;
+    }
+
+    return (<article  className={styles.launchProgramContainer} data-test-id="launchProgram"> 
         {programs.map((program: any) => {
             const { flight_number, mission_name, launch_year,
                 links: { mission_patch_small }, launch_success, rocket} = program as any;
-            return <div key={flight_number} className={styles.launchProgramDiv}>
+            return <article key={flight_number} className={styles.launchProgramDiv} data-test-id="launchProgramArticle">
                 <div className={styles.launchProgramImgDiv}>
                     <img src={mission_patch_small} />
                 </div>
@@ -52,7 +56,7 @@ const LaunchProgram: React.SFC<LaunchProgramProps> = ({query}) => {
                     <span className={styles.title}>Successful Landing: </span>
                     {rocket.first_stage.cores[0].land_success ? 'true' : 'false'}
                 </div>
-            </div>
+            </article>
             
         }
         )}
