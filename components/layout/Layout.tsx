@@ -1,6 +1,7 @@
 import React, { ReactNode, Fragment } from 'react';
 import Head from 'next/head';
 import styles from './Layout.module.scss';
+import Footer from '../Footer/Footer';
 
 type Props = {
   children?: ReactNode
@@ -21,9 +22,7 @@ const Layout = ({ children, title = 'No Title!' }: Props) => (
     <section id="content">
       {children}
     </section>
-    <footer id="footer">
-      <div>Developed by: <a href="https://bit.ly/annurag" target="_blank">Anurag Arwalkar</a></div>
-    </footer>
+    <Footer></Footer>
   </Fragment>
 )
 
