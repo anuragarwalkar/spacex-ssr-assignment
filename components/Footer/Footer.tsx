@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Footer = () => {
     return (
     <footer id="footer" data-test-id="footer">
