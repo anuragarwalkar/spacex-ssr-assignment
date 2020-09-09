@@ -1,4 +1,4 @@
-import React, { ReactNode, Fragment } from 'react';
+import { ReactNode, Fragment } from 'react';
 import Head from 'next/head';
 import styles from './Layout.module.scss';
 import Footer from '../Footer/Footer';

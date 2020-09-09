@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Layout from '../components/layout/Layout';
 import Filter from '../components/filters/Filter';
 import LaunchProgram from '../components/Program/LaunchProgram';

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getLaunchPrograms } from '../../services/launchProgramService';
 import styles from './LaunchProgram.module.scss';
 import { useRouter } from 'next/router'
